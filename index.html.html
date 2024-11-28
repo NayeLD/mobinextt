@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobinext - Telefonía Móvil</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo general */
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E6DAF8; /* Fondo lila bebé */
+            color: #F0F8FF; /* Texto verde agua */
+        }
+
+        header {
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmd1N21obXA0YXI0MmJka2I3aHBwdzhzam1iaHB0dHE3MWtzejFubCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/do81QxcXVzj2BhBqHH/giphy.gif') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        header img.logo {
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin: 0;
+        }
+
+        .eslogan {
+            font-size: 1.5em;
+            color: #FFD700; /* Color dorado */
+            margin: 25px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            background: rgba(255, 215, 0, 0.8);
+            transform: scale(1.05);
+        }
+
+        /* Contenedor principal */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background: #000; /* Fondo negro para el contenido */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background: #333;
+            color: #fff;
+        }
+
+        h2 {
+            color: #FFD700; /* Color dorado para subtítulos */
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #F0FFFF; /* Lila bebé */
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            color: #6a5acd;
+        }
+
+        .gif-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .gif-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Factura */
+        .factura-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .factura-container {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box; /* Asegura que el botón ocupe todo el ancho disponible */
+        }
+
+        button:hover {
+            background-color: #5a4db8;
+        }
+
+        /* Botones Planes */
+        .plan-button {
+            background-color: #E6DAF8; /* Lila bebé */
+            color: #000; /* Texto negro */
+            font-size: 1.1em;
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-sizing: border-box; /* Asegura que el botón ocupe todo el ancho disponible */
+        }
+
+        .plan-button:hover {
+            background-color: #D8B5F6;
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            header img.logo {
+                height: 120px;
+            }
+
+            .container {
+                padding: 15px;
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .eslogan {
+                font-size: 1.2em;
+            }
+
+            nav a {
+                font-size: 1em;
+                padding: 8px 16px;
+                margin: 10px 0;
+                width: 100%; /* Los botones ocupan todo el ancho en pantallas pequeñas */
+                text-align: center; /* Centra el texto de los botones */
+            }
+
+            button {
+                width: 100%;
+                padding: 12px;
+                font-size: 1.2em; /* Aumenta el tamaño del texto del botón */
+            }
+
+            .plan-button {
+                font-size: 1em;
+                width: 100%; /* Asegura que los botones de los planes también sean responsivos */
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 1.1em;
+                width: 100%;
+                padding: 12px;
+                margin: 10px 0;
+            }
+
+            .gif-container img {
+                width: 100%;
+                height: auto;
+            }
+
+            button {
+                font-size: 1.3em;
+            }
+
+            .plan-button {
+                font-size: 1.1em;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <img src="https://i.imgur.com/jky6lhM.jpeg" alt="Logo de Mobinext" class="logo">
+    <div class="header-content">
+        <h1>Bienvenido a Mobinext</h1>
+        <p class="eslogan">"Conectando tu mundo, un plan a la vez."</p>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#planes">Planes</a>
+            <a href="#factura">Factura</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <section id="servicios">
+        <h2>Servicios</h2>
+        <p><strong>Telefonía fija:</strong> Servicios de llamadas locales, nacionales e internacionales a través de una línea fija.</p>
+        <p><strong>Telefonía móvil:</strong> Planes de llamadas, mensajes de texto y datos móviles para smartphones y otros dispositivos móviles.</p>
+        <p><strong>Internet:</strong> Conexiones de banda ancha, ya sea a través de fibra óptica, ADSL o servicios móviles 4G/5G.</p>
+        <p><strong>Televisión de pago:</strong> Acceso a canales de televisión premium, servicios de streaming y contenido bajo demanda.</p>
+        <p><strong>Servicios de datos:</strong> Soluciones para empresas que incluyen redes privadas virtuales (VPN), servicios de almacenamiento en la nube y más.</p>
+        <p><strong>Servicios adicionales:</strong> Correos de voz, identificador de llamadas, servicios de roaming internacional, entre otros.</p>
+    </section>
+
+    <section id="planes">
+        <h2>Planes</h2>
+        <button class="plan-button">Plan Básico: 200 minutos, 200 SMS y 5GB de datos.</button>
+        <button class="plan-button">Plan Estándar: 500 minutos, 500 SMS y 10GB de datos.</button>
+        <button class="plan-button">Plan Premium: Llamadas, SMS ilimitados y 30GB de datos.</button>
+    </section>
+
+    <section id="factura">
+        <h2>Generar Factura</h2>
+        <form id="formulario-factura">
+            <label for="servicio">Servicio:</label>
+            <select id="servicio" required>
+                <option value="Telefonía Fija">Telefonía Fija</option>
+                <option value="Telefonía Móvil">Telefonía Móvil</option>
+                <option value="Internet">Internet</option>
+                <option value="Televisión">Televisión</option>
+            </select>
+            <label for="monto">Monto (Bs):</label>
+            <input type="number" id="monto" required>
+            <label for="metodo-pago">Método de pago:</label>
+            <select id="metodo-pago" required>
+                <option value="Tarjeta de Crédito">Tarjeta de Crédito</option>
+                <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                <option value="Pago en Tienda">Pago en Tienda</option>
+            </select>
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" required>
+            <button type="submit">Generar Factura</button>
+        </form>
+
+        <div class="factura-container" id="factura-container">
+            <h3>Factura Generada</h3>
+            <p id="factura-detalle"></p>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+
+  <p>Puedes contactarnos a través de nuestro correo electrónico o visitar nuestras redes sociales:</p>
+       
+ <a href="https://www.facebook.com/share/JKaW1C4xk4BryLkW/?mibextid=qi2Omg" target="_blank">
+            <img src="ruta_a_tu_icono_de_facebook" alt="Facebook">
+       </a>
+       
+ <a href="https://www.instagram.com/mobinext_18?igsh=MWpuMDAydmt3NjZzdw==" target="_blank">
+            <img src="ruta_a_tu_icono_de_instagram" alt="Instagram">
+        </a>
+  
+      <a href="mailto:m82465878@gmail.com">
+           
+ <img src="ruta_a_tu_icono_de_email" alt="Email">
+        </a>
+    
+    <a href="https://www.tiktok.com/@mobinext0?_t=8qEgcn4xDKo&_r=1" target="_blank">
+            <img src="ruta_a_tu_icono_de_tiktok" alt="TikTok">
+        </a>
+   
+ </section>
+
+
+
+        <p>Si tienes alguna consulta, puedes ponerte en contacto con nosotros a través del siguiente formulario:</p>
+        <form action="#">
+            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <input type="email" name="email" placeholder="Tu email" required>
+            <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+</div>
+
+<div class="gif-container">
+    <img src="https://fondos-animados.com/gifs/2020/08/20193/gif-gatitos-muy-tiernos.gif" alt="gif de gatitos">
+</div>
+
+<footer>
+    <p>&copy; 2024 Mobinext - Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
+
+
+
+
